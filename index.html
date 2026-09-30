@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Upgrader MiniApp</title>
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <!-- CryptoJS для честного выбора (Provably Fair) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Огненный фон -->
+  <canvas id="fireCanvas"></canvas>
+
+  <!-- Дракон -->
+  <div class="dragon-container">
+    <div class="dragon">🐉</div>
+  </div>
+
+  <!-- Арена апгрейдера -->
+  <div class="app-container">
+    
+    <!-- Карточки предметов -->
+    <div class="items-preview">
+      <div class="item-card active" id="currentItemCard">
+        <span class="item-icon" id="currentIcon">🧸</span>
+        <span class="item-name" id="currentName">Мишка</span>
+      </div>
+      <div class="arrow">➔</div>
+      <div class="item-card target" id="nextItemCard">
+        <span class="item-icon" id="nextIcon">🌹</span>
+        <span class="item-name" id="nextName">Роза</span>
+      </div>
+    </div>
+
+    <!-- Колесо апгрейда -->
+    <div class="wheel-wrapper">
+      <div class="wheel-pointer">▼</div>
+      <div class="fire-wheel" id="fireWheel">
+        <div class="wheel-center">
+          <span id="chancePercent">45%</span>
+          <span class="chance-label">Шанс</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Кнопки -->
+    <div class="controls">
+      <button class="btn btn-upgrade" id="btnUpgrade">🔥 УЛУЧШИТЬ 🔥</button>
+      <button class="btn btn-withdraw" id="btnWithdraw">📦 ВЫВЕСТИ</button>
+    </div>
+
+    <!-- Сообщение о результате -->
+    <div class="status-msg" id="statusMsg"></div>
+
+    <!-- Provably Fair -->
+    <div class="provably-fair">
+      <small>Server Hash: <span id="serverHash">...</span></small>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
