@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background: radial-gradient(circle at center, #8b0000 0%, #2b0000 100%);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fireCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dragon-container {
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  animation: dragonBreath 3s infinite ease-in-out;
+}
+
+.dragon {
+  font-size: 70px;
+  filter: drop-shadow(0 0 20px #ff3300);
+}
+
+@keyframes dragonBreath {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(8px) scale(1.05); }
+}
+
+.app-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 380px;
+  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.items-preview {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #ff4500;
+  border-radius: 15px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85px;
+  box-shadow: 0 0 15px rgba(255, 69, 0, 0.4);
+}
+
+.item-icon { font-size: 36px; }
+.item-name { font-size: 13px; margin-top: 5px; font-weight: bold; text-align: center; }
+
+.arrow { font-size: 22px; color: #ff6600; }
+
+.wheel-wrapper {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -8px;
+  color: #ffcc00;
+  font-size: 24px;
+  z-index: 10;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.fire-wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 5px solid #ff4500;
+  box-shadow: 0 0 25px #ff0000, inset 0 0 15px #ff3300;
+  position: relative;
+  transition: transform 4s cubic-bezier(0.15, 0.9, 0.15, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wheel-center {
+  width: 95px;
+  height: 95px;
+  background: #1a0000;
+  border: 3px solid #ff6600;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  box-shadow: 0 0 15px #ff4500;
+}
+
+#chancePercent { font-size: 26px; font-weight: bold; color: #ffcc00; }
+.chance-label { font-size: 11px; color: #aaa; }
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.btn {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-upgrade {
+  background: linear-gradient(45deg, #ff0000, #ff6600);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.btn-upgrade:active { transform: scale(0.98); }
+
+.btn-withdraw {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.status-msg {
+  font-size: 15px;
+  font-weight: bold;
+  height: 22px;
+  text-align: center;
+}
+
+.provably-fair {
+  font-size: 10px;
+  color: #888;
+  word-break: break-all;
+  text-align: center;
+}
